@@ -1,0 +1,56 @@
+/* Base */
+
+#switchBase {
+    position: relative;
+    height: 30px;
+    width: 60px;
+    border: 1px solid grey;
+    border-radius: 25px;
+}
+
+#switchBase.oui {
+    background-color : green;
+}
+
+#switchBase.non {
+    background-color : lightgrey;
+}
+
+/* Text area */
+
+#switchTextArea {
+    font-family: Arial;
+    font-size: 0.9em;
+    position: absolute;
+    line-height: 30px;
+    margin : 0 5px;
+}
+
+#switchTextArea.non {
+    color: darkgray;
+    right: 0;
+}
+
+#switchTextArea.oui {
+    color: white;
+    left: 0;
+}
+
+/* Cursor */
+
+#switchCursor {
+    position: absolute;
+    height: 24px;
+    width: 24px;
+    background-color : white;
+    border: 3px solid grey;
+    border-radius: 25px;
+}
+
+#switchCursor.oui {
+    right: 0;
+}
+
+#switchCursor.non {
+    left: 0;
+}
