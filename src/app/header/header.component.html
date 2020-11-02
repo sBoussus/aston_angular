@@ -1,0 +1,25 @@
+<h2>{{ title }}</h2>
+<!-- équivalent par property binding -->
+<!-- <h2 [innerText]="title"></h2> -->
+
+<div *ngIf="authenticated">
+    <!-- <img src="{{srcPath}}" alt="{{altText}}"/> -->
+    <img 
+        (click)="updateUI()"
+        [src]="srcPath"
+        [alt]="altText"
+        [ngStyle]="{'border-color': borderColor}"
+    />
+</div>
+
+<button (click)="updateUI()">Event</button>
+
+<div>
+    <select (change)="onChange($event)">
+        <option>Select an option</option>
+        <option *ngFor="let option of options">{{ option }}</option>
+    </select>
+</div>
+
+
+
