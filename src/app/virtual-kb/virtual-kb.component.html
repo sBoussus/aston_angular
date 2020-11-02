@@ -1,0 +1,14 @@
+<h2>Exo 3 - Virtual keyboard</h2>
+
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <div id="inputField" >
+            <p *ngFor="let cell of inputCells"><span>{{ cell }}</span></p>
+        </div>
+        <div id="keyboard" class="row" >
+            <div class="keybox col-3" *ngFor="let key of keys"><button type="button" class="btn btn-outline-dark">{{ key }}</button></div>
+        </div>
+        <button type="button" class="btn btn-danger">Valider</button>
+    </div>
+</div>
+
