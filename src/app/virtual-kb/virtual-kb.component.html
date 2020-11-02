@@ -3,12 +3,22 @@
 <div class="card" style="width: 18rem;">
     <div class="card-body">
         <div id="inputField" >
-            <p *ngFor="let cell of inputCells"><span>{{ cell }}</span></p>
+            <p *ngFor="let cell of inputCells"><span>{{ cell !== '_' ? '*' : '_' }}</span></p>
         </div>
-        <div id="keyboard" class="row" >
-            <div class="keybox col-3" *ngFor="let key of keys"><button type="button" class="btn btn-outline-dark">{{ key }}</button></div>
+        <div 
+            id="keyboard" 
+            class="row" 
+            (click)="keyClick($event)"
+            >
+            <div class="keybox col-3" *ngFor="let keyNumber of keyNumbers">
+                <button type="button" class="btn btn-outline-dark" [disabled]="keysDisabledStatus">{{ keyNumber }}</button>
+            </div>
         </div>
-        <button type="button" class="btn btn-danger">Valider</button>
+        <button 
+            type="button" 
+            class="btn btn-danger" 
+            [disabled]="submitDisabledStatus"
+            (click)="submitClick()">Valider</button>
     </div>
 </div>
 

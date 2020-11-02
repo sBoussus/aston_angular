@@ -14,11 +14,11 @@
 
 .keybox {
     padding: 2px;
-
+    display: flex;
+    justify-content: center;
 }
 
 .keybox button {
-    margin: 0 auto;
     width: 35px;
     height: 38px;
 }
