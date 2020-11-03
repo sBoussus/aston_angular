@@ -1,5 +1,5 @@
 import { JuvePlayersService } from './../services/juve-players.service';
-import { Component, OnInit, Output, EventEmitter  } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-juve-jersey-flocking',
@@ -9,6 +9,7 @@ import { Component, OnInit, Output, EventEmitter  } from '@angular/core';
 export class JuveJerseyFlockingComponent implements OnInit {
 
   juvePlayers: any[];
+  @Input() flockingState: any[];
   @Output() changeFlockingState: EventEmitter<any> = new EventEmitter();
 
   constructor(private juvePlayersService: JuvePlayersService) {
@@ -16,6 +17,14 @@ export class JuveJerseyFlockingComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  noFlockButtonClick() {
+    this.changeFlockingState.emit(undefined);
+  }
+
+  playersButtonClick() {
+    this.selectFlockage();
   }
 
   selectFlockage(event?: any) {

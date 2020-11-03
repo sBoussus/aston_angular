@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JuveJerseyComponent implements OnInit {
 
-  playerFlockage: any[] = [];
+  flockageState: any[] = [];
 
   constructor() { }
 
@@ -16,8 +16,8 @@ export class JuveJerseyComponent implements OnInit {
 
   changeFlockingPlayer(flockingState: any) {
     console.log('change');
-    this.playerFlockage = [flockingState];
-    console.log(this.playerFlockage);
+    this.flockageState = [flockingState];
+    console.log(this.flockageState);
   }
 
 }

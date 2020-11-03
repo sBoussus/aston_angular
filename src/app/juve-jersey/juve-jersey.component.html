@@ -12,8 +12,11 @@
     <div id="settingArea">
         <h2>Juventus Home Authentic Jersey 2020/21</h2>
         <section>
+            <h3>Flocking</h3>
             <!-- Composant A -->
-            <app-juve-jersey-flocking (changeFlockingState)="changeFlockingPlayer($event)"></app-juve-jersey-flocking>
+            <app-juve-jersey-flocking [flockingState]="flockageState" (changeFlockingState)="changeFlockingPlayer($event)"></app-juve-jersey-flocking>
+            <!-- temp -->
+            <!-- <div>Test : {{ flockageState[0] == undefined ? 'Rien' : flockageState[0].name }}</div> -->
         </section>
         <section>
             <h3>Badges</h3>
