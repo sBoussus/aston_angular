@@ -32,7 +32,7 @@ export class HeaderComponent {
   onChange(event: any) {
     let value: string = event.target.value;
     console.log(value);
-    if(value === 'New option') {
+    if (value === 'New option') {
       this.borderColor = '#ff6633';
     } else {
       this.borderColor = value;

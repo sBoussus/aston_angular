@@ -21,7 +21,6 @@ export class JuveJerseyPriceComponent implements OnInit {
       flockingPrice = 10;
     }
     this.totalPrice = (basePrice + flockingPrice + (badgesState * 10)) * quantityState;
-    console.log(this.totalPrice);
   }
 
 }

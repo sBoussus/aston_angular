@@ -19,10 +19,10 @@ export class CarouselComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.changeImage();
+    this.changeMainImage();
   }
 
-  changeImage() {
+  changeMainImage() {
     setInterval(
       () => {
         this.indexImage++;

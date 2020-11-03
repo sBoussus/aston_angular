@@ -24,16 +24,15 @@ export class JuveJerseyFlockingComponent implements OnInit {
   }
 
   playersButtonClick() {
-    this.selectFlockage();
+    this.selectFlocking();
   }
 
-  selectFlockage(event?: any) {
+  selectFlocking(event?: any) {
     let selectedPlayerIndex = 0;
     if (event) {
       selectedPlayerIndex = event.target.options.selectedIndex;
     }
     let selectedPlayer = this.juvePlayers[selectedPlayerIndex];
-    console.log(selectedPlayer);
     this.changeFlockingState.emit(selectedPlayer);
   }
 

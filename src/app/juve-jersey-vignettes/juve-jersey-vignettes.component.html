@@ -1,0 +1,4 @@
+<img src="{{ mainImage }}" />
+<div id="thumbs">
+    <img *ngFor="let imageLink of imagesLinks; let index = index" src="{{ imageLink }}" (click)="changeMainImage(index)"/>
+</div>

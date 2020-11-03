@@ -1,12 +1,12 @@
 <h1>TP juvejersey</h1>
 <div id="app">
-    <div id="photoArea">
-        <img src="../../assets/images/juve/1.jpg" />
-        <div id="thumbs">
-            <img src="../../assets/images/juve/1.jpg" />
-            <img src="../../assets/images/juve/2.jpg" /> 
-            <img src="../../assets/images/juve/3.jpg" /> 
-            <img src="../../assets/images/juve/4.jpg" /> 
+    <div id="photoArea">        
+        <!-- Composant C -->
+        <app-juve-jersey-vignettes
+            (changeMainImageIndex)="changeMainImageIndex($event)"></app-juve-jersey-vignettes>
+        <div id="flockingArea" *ngIf="flockingState[0] && mainImageIndex === 2">
+            <p id="nameFlocking">{{ flockingState[0].name | uppercase }}</p>
+            <p id="numFlocking">{{ flockingState[0].num }}</p>
         </div>
     </div>
     <div id="settingArea">
@@ -15,10 +15,8 @@
             <h3>Flocking</h3>
             <!-- Composant A -->
             <app-juve-jersey-flocking 
-                [flockingState]="flockageState" 
+                [flockingState]="flockingState" 
                 (changeFlockingState)="changeFlockingPlayer($event)"></app-juve-jersey-flocking>
-            <!-- temp -->
-            <!-- <div>Test : {{ flockageState[0] == undefined ? 'Rien' : flockageState[0].name }}</div> -->
         </section>
         <section>
             <h3>Badges</h3>
@@ -45,8 +43,8 @@
         </section>
         <section>
             <h3>Total price</h3>
-                <!-- Composant D -->
-                <app-juve-jersey-price></app-juve-jersey-price>
+            <!-- Composant B -->
+            <app-juve-jersey-price></app-juve-jersey-price>
         </section>
     </div>
 </div>

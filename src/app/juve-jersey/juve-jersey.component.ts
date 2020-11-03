@@ -8,9 +8,10 @@ import { JuveJerseyPriceComponent } from '../juve-jersey-price/juve-jersey-price
 })
 export class JuveJerseyComponent implements OnInit {
 
-  flockageState: any[] = [];
+  flockingState: any[] = [];
   badgesState: number = 0;
   quantityState: number = 1;
+  mainImageIndex: number = 0;
 
   @ViewChild(JuveJerseyPriceComponent) totalPrice: JuveJerseyPriceComponent;
 
@@ -20,10 +21,8 @@ export class JuveJerseyComponent implements OnInit {
   }
 
   changeFlockingPlayer(flockingState: any) {
-    console.log('change'); // temp
-    this.flockageState = [flockingState];
-    console.log(this.flockageState); // temp
-    this.totalPrice.changeTotalPrice(this.flockageState, this.badgesState, this.quantityState);
+    this.flockingState = [flockingState];
+    this.totalPrice.changeTotalPrice(this.flockingState, this.badgesState, this.quantityState);
   }
 
   changeBadges(event: any){
@@ -33,13 +32,17 @@ export class JuveJerseyComponent implements OnInit {
     } else {
       this.badgesState--;
     }
-    this.totalPrice.changeTotalPrice(this.flockageState, this.badgesState, this.quantityState);
+    this.totalPrice.changeTotalPrice(this.flockingState, this.badgesState, this.quantityState);
   }
 
   changeQuantity(event: any){
     let newQuantityValue = event.target.value;
     this.quantityState = newQuantityValue;
-    this.totalPrice.changeTotalPrice(this.flockageState, this.badgesState, this.quantityState);
+    this.totalPrice.changeTotalPrice(this.flockingState, this.badgesState, this.quantityState);
+  }
+
+  changeMainImageIndex(index: number) {
+    this.mainImageIndex = index;
   }
 
 }

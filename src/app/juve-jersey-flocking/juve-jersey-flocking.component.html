@@ -2,6 +2,6 @@
     <span [ngClass]="{'flock': true, 'selected': !flockingState[0]}" (click)="noFlockButtonClick()">No flock</span>
     <span [ngClass]="{'flock': true, 'selected': flockingState[0]}" (click)="playersButtonClick()">Players</span>
 </div>
-<select id="playerSelect" (change)="selectFlockage($event)" *ngIf="flockingState[0]">
+<select id="playerSelect" (change)="selectFlocking($event)" *ngIf="flockingState[0]">
     <option *ngFor="let juvePlayer of juvePlayers" > {{ juvePlayer.num }} - {{ juvePlayer.name }} </option>
 </select>
