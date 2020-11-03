@@ -7,11 +7,12 @@
         </div>
         <div 
             id="keyboard" 
-            class="row" 
-            (click)="keyClick($event)"
-            >
+            class="row">
             <div class="keybox col-3" *ngFor="let keyNumber of keyNumbers">
-                <button type="button" class="btn btn-outline-dark" [disabled]="keysDisabledStatus">{{ keyNumber }}</button>
+                <button type="button" 
+                        class="btn btn-outline-dark" 
+                        [disabled]="keysDisabledStatus" 
+                        (click)="keyClick($event)">{{ keyNumber }}</button>
             </div>
         </div>
         <button 

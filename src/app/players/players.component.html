@@ -1,0 +1,7 @@
+<!-- <p *ngFor="let player of players">{{ player.lastname }}</p> -->
+<p>Nombre de joueurs blessés: {{ numInjuredPlayers }}</p>
+<app-player 
+    *ngFor="let player of players" 
+    [player]="player"
+    (changeState)="onChange($event)"
+    ></app-player>

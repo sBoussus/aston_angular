@@ -1,0 +1,6 @@
+<h3>Flocking</h3>
+<span class="flock selected">No flock</span>
+<span class="flock">Players</span>
+<select (change)="selectFlockage($event)">
+    <option *ngFor="let juvePlayer of juvePlayers" > {{ juvePlayer.num }} - {{ juvePlayer.name }} </option>
+</select>
