@@ -14,7 +14,9 @@
         <section>
             <h3>Flocking</h3>
             <!-- Composant A -->
-            <app-juve-jersey-flocking [flockingState]="flockageState" (changeFlockingState)="changeFlockingPlayer($event)"></app-juve-jersey-flocking>
+            <app-juve-jersey-flocking 
+                [flockingState]="flockageState" 
+                (changeFlockingState)="changeFlockingPlayer($event)"></app-juve-jersey-flocking>
             <!-- temp -->
             <!-- <div>Test : {{ flockageState[0] == undefined ? 'Rien' : flockageState[0].name }}</div> -->
         </section>
@@ -25,15 +27,15 @@
                 <img src="../../assets/images/juve/badge2.png" alt="">
                 <img src="../../assets/images/juve/badge3.jpg" alt="">
             </div>
-            <div id="badgesSelector">
-                <input type="checkbox" />
-                <input type="checkbox" />
-                <input type="checkbox" />
+            <div id="badgesSelector" >
+                <input type="checkbox" (change)="changeBadges($event)"/>
+                <input type="checkbox" (change)="changeBadges($event)"/>
+                <input type="checkbox" (change)="changeBadges($event)"/>
             </div>
         </section>
         <section>
             <h3>Quantity</h3>
-            <select>
+            <select (change)="changeQuantity($event)">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -43,6 +45,8 @@
         </section>
         <section>
             <h3>Total price</h3>
+                <!-- Composant D -->
+                <app-juve-jersey-price></app-juve-jersey-price>
         </section>
     </div>
 </div>

@@ -11,6 +11,7 @@ import { PlayerComponent } from './player/player.component';
 import { PlayerFormComponent } from './player-form/player-form.component';
 import { JuveJerseyComponent } from './juve-jersey/juve-jersey.component';
 import { JuveJerseyFlockingComponent } from './juve-jersey-flocking/juve-jersey-flocking.component';
+import { JuveJerseyPriceComponent } from './juve-jersey-price/juve-jersey-price.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { JuveJerseyFlockingComponent } from './juve-jersey-flocking/juve-jersey-
     PlayerComponent,
     PlayerFormComponent,
     JuveJerseyComponent,
-    JuveJerseyFlockingComponent
+    JuveJerseyFlockingComponent,
+    JuveJerseyPriceComponent
   ],
   imports: [
     BrowserModule
