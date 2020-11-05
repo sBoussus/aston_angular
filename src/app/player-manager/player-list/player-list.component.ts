@@ -27,13 +27,19 @@ export class PlayerListComponent implements OnInit {
 
   loadPlayers() {
     this.playerService
-        .getPlayers()
-        .pipe(
-          switchMap((players: any) => players),
-        )
-        .subscribe(player => {
-          this.players.push(player);
-        });
+      .getPlayers()
+      .pipe(
+        switchMap((players: any) => players),
+      )
+      .subscribe(player => {
+        this.players.push(player);
+      });
+  }
+
+  supprPlayer(event: any, playerId: number) {
+    this.playerService
+      .deletePlayer(playerId)
+      .subscribe(res => console.log(res));
   }
 
 }

@@ -81,20 +81,20 @@
       "age": 23
     },
     {
-      "lastname": "",
-      "firstname": "",
-      "teamId": 1,
-      "position": "gardien",
-      "age": 0,
-      "id": 11
-    },
-    {
       "lastname": "Zidane",
       "firstname": "Zinédine",
       "teamId": 1,
       "position": "milieu",
       "age": 50,
       "id": 12
+    },
+    {
+      "lastname": "Platini",
+      "firstname": "Michel",
+      "teamId": 1,
+      "position": "milieu",
+      "age": 60,
+      "id": 13
     }
   ]
 }

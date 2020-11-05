@@ -5,6 +5,7 @@
             <h5 class="card-title">#{{ player.id }} {{ player.lastname | uppercase }} {{ player.firstname }}</h5>
             <p class="card-text">Position: {{ player.position }}</p>
             <p class="card-text">Âge: {{ player.age }} ans</p>
+            <button type="submit" class="btn btn-secondary" (click)="supprPlayer($event, player.id)">Supprimer</button>
         </div>
     </div>
 </div>
