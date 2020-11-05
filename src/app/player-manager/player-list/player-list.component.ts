@@ -38,24 +38,27 @@ export class PlayerListComponent implements OnInit {
       });
   }
 
+  reloadPlayers() {
+    this.playerService
+      .getPlayers()
+      .subscribe((players: any[]) => {
+        this.players = players;
+      });
+  }
+
   changeTeamIdFilter(event: any) {
     let { value } = event.target;
 
     if (value !== '-') {
-      value = parseInt(value);
       this.playerService
         .getPlayers()
         .subscribe((players: any[]) => {
           this.players = players.filter((player: any) => {
-            return player.teamid === value;
+            return player.teamid == value;
           });
         });
     } else {
-      this.playerService
-        .getPlayers()
-        .subscribe((players: any[]) => {
-          this.players = players;
-        });
+      this.reloadPlayers();
     }
 
   }
@@ -72,11 +75,7 @@ export class PlayerListComponent implements OnInit {
           });
         });
     } else {
-      this.playerService
-        .getPlayers()
-        .subscribe((players: any[]) => {
-          this.players = players;
-        });
+      this.reloadPlayers();
     }
 
   }
@@ -85,6 +84,7 @@ export class PlayerListComponent implements OnInit {
     this.playerService
       .deletePlayer(playerId)
       .subscribe(res => console.log(res));
+    this.reloadPlayers();
   }
 
 }

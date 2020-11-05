@@ -83,7 +83,7 @@
     {
       "lastname": "Zidane",
       "firstname": "Zinédine",
-      "teamId": 1,
+      "teamid": 1,
       "position": "milieu",
       "age": 50,
       "id": 12
@@ -91,10 +91,18 @@
     {
       "lastname": "Platini",
       "firstname": "Michel",
-      "teamId": 1,
+      "teamid": 1,
       "position": "milieu",
       "age": 60,
       "id": 13
+    },
+    {
+      "lastname": "Navas",
+      "firstname": "Keylor",
+      "teamid": 3,
+      "position": "gardien",
+      "age": 33,
+      "id": 14
     }
   ]
 }

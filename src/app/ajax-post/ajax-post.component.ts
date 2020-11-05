@@ -11,7 +11,7 @@ export class AjaxPostComponent implements OnInit {
   player = {
     lastname: '',
     firstname: '',
-    teamId: 1,
+    teamd: 1,
     position: 'gardien',
     age: 0
   };

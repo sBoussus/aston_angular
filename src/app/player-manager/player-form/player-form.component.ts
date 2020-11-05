@@ -1,6 +1,5 @@
 import { PlayerService } from './../player.service';
-import { Component, OnInit } from '@angular/core';
-
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-player-form',
@@ -12,10 +11,12 @@ export class PlayerFormComponent implements OnInit {
   player = {
     lastname: '',
     firstname: '',
-    teamId: 1,
+    teamid: 1,
     position: 'gardien',
     age: 0
   }
+
+  @Output() formToList: EventEmitter<any> = new EventEmitter();
 
   constructor(
     private playerService: PlayerService) {
@@ -28,6 +29,7 @@ export class PlayerFormComponent implements OnInit {
     this.playerService
       .postPlayer(this.player)
       .subscribe(res => console.log(res));
+    this.formToList.emit('reloadPlayers');
   }
 
 }
