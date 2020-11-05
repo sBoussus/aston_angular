@@ -27,7 +27,7 @@ export class PlayerFormComponent implements OnInit {
   createPlayer() {
     this.playerService
       .postPlayer(this.player)
-      .subscribe(res => console.log(res))
+      .subscribe(res => console.log(res));
   }
 
 }

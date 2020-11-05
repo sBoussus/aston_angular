@@ -10,7 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlayerListComponent implements OnInit {
 
-  players: any = [];
+  public players: any = [];
+  positionFilter: string = '';
+  teamIdFilter: number = 0;
 
   constructor(
     private playerService: PlayerService) {
@@ -31,9 +33,52 @@ export class PlayerListComponent implements OnInit {
       .pipe(
         switchMap((players: any) => players),
       )
-      .subscribe(player => {
+      .subscribe((player: any) => {
         this.players.push(player);
       });
+  }
+
+  changeTeamIdFilter(event: any) {
+    let { value } = event.target;
+
+    if (value !== '-') {
+      value = parseInt(value);
+      this.playerService
+        .getPlayers()
+        .subscribe((players: any[]) => {
+          this.players = players.filter((player: any) => {
+            return player.teamid === value;
+          });
+        });
+    } else {
+      this.playerService
+        .getPlayers()
+        .subscribe((players: any[]) => {
+          this.players = players;
+        });
+    }
+
+  }
+
+  changePositionFilter(event: any) {
+    let { value } = event.target;
+
+    if (value !== '-') {
+      this.playerService
+        .getPlayers()
+        .subscribe((players: any[]) => {
+          this.players = players.filter((player: any) => {
+            return player.position === value;
+          });
+        });
+    } else {
+      this.playerService
+        .getPlayers()
+        .subscribe((players: any[]) => {
+          this.players = players;
+        });
+    }
+
   }
 
   supprPlayer(event: any, playerId: number) {

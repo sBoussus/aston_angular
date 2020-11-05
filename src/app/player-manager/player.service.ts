@@ -22,6 +22,10 @@ export class PlayerService {
     return this.http.post(API, player);
   }
 
+  putPlayer(player: any): any {
+    return this.http.put(API, player);
+  }
+
   deletePlayer(id: any): any {
     return this.http.delete(API + '/' + id);
   }
