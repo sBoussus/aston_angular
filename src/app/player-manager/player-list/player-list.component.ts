@@ -17,14 +17,23 @@ export class PlayerListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loadPlayers();
+  }
+
+  // ngDoCheck(): void {
+  //   this.players = [];
+  //   this.loadPlayers();
+  // }
+
+  loadPlayers() {
     this.playerService
-      .getPlayers()
-      .pipe(
-        switchMap((players: any) => players),
-      )
-      .subscribe(player => {
-        this.players.push(player);
-      });
+        .getPlayers()
+        .pipe(
+          switchMap((players: any) => players),
+        )
+        .subscribe(player => {
+          this.players.push(player);
+        });
   }
 
 }

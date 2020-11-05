@@ -30,5 +30,4 @@ export class PlayerFormComponent implements OnInit {
       .subscribe(res => console.log(res))
   }
 
-  
 }
