@@ -21,16 +21,15 @@
     </div>
 </div>
 
-<div class="row">
+<div id="playersBox" class="row">
     <div class="card col-6" style="width: 18rem;" *ngFor="let player of players;">
         <div class="card-body">
             <h5 class="card-title">#{{ player.id }} {{ player.lastname | uppercase }} {{ player.firstname }}</h5>
+            <p class="card-text">Âge: {{ player.age }} ans</p>
             <p class="card-text">Équipe: {{ player.teamid }}</p>
             <p class="card-text">Position: {{ player.position }}</p>
-            <p class="card-text">Âge: {{ player.age }} ans</p>
-            <button type="submit" class="btn btn-light" (click)="updatePlayer($event, player.id)">Éditer</button>
+            <button type="submit" class="btn btn-light" (click)="launchEditMode(player.id)">Éditer</button>
             <button type="submit" class="btn btn-light" (click)="supprPlayer($event, player.id)">Supprimer</button>
         </div>
     </div>
 </div>
-

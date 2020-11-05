@@ -1,37 +1,41 @@
-<h2>Ajouter un joueur</h2>
-<div>
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <label>Nom</label>
-            <input type="text" class="form-control" [(ngModel)]="player.lastname">
+<div id="playerFormBox" class="card">
+    <div class="card-body">
+        <h2 *ngIf="!editMode">Ajouter un joueur</h2>
+        <h2 *ngIf="editMode">Modifier un joueur</h2>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Nom</label>
+                <input type="text" class="form-control" [(ngModel)]="player.lastname">
+            </div>
+            <div class="form-group col-md-6">
+                <label>Prénom</label>
+                <input type="text" class="form-control" [(ngModel)]="player.firstname">
+            </div>
         </div>
-        <div class="form-group col-md-6">
-            <label>Prénom</label>
-            <input type="text" class="form-control" [(ngModel)]="player.firstname">
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label>Âge</label>
+                <input type="number" class="form-control" [(ngModel)]="player.age">
+            </div>
+            <div class="form-group col-md-3">
+                <label>Team id</label>
+                <select class="form-control" [(ngModel)]="player.teamid">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label>Position</label>
+                <select class="form-control" [(ngModel)]="player.position">
+                    <option>gardien</option>
+                    <option>défenseur</option>
+                    <option>milieu</option>
+                    <option>attaquant</option>
+                </select>
+            </div>
         </div>
+        <button type="submit" class="btn btn-secondary"  (click)="createPlayer()" *ngIf="!editMode">Ajouter</button>
+        <button type="submit" class="btn btn-secondary"  (click)="updatePlayer()" *ngIf="editMode">Mettre à jour</button>
     </div>
-    <div class="form-row">
-        <div class="form-group col-md-3">
-            <label>Âge</label>
-            <input type="number" class="form-control" [(ngModel)]="player.age">
-        </div>
-        <div class="form-group col-md-3">
-            <label>Team id</label>
-            <select class="form-control" [(ngModel)]="player.teamid">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-            </select>
-        </div>
-        <div class="form-group col-md-6">
-            <label>Position</label>
-            <select class="form-control" [(ngModel)]="player.position">
-                <option>gardien</option>
-                <option>défenseur</option>
-                <option>milieu</option>
-                <option>attaquant</option>
-            </select>
-        </div>
-    </div>
-    <button type="submit" class="btn btn-secondary"  (click)="createPlayer()">Ajouter</button>
 </div>

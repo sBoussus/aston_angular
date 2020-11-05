@@ -1,6 +1,6 @@
 import { switchMap } from 'rxjs/operators';
 import { PlayerService } from './../player.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 
 @Component({
@@ -14,6 +14,8 @@ export class PlayerListComponent implements OnInit {
   positionFilter: string = '';
   teamIdFilter: number = 0;
 
+  @Output() listToForm: EventEmitter<any> = new EventEmitter();
+
   constructor(
     private playerService: PlayerService) {
   }
@@ -21,11 +23,6 @@ export class PlayerListComponent implements OnInit {
   ngOnInit(): void {
     this.loadPlayers();
   }
-
-  // ngDoCheck(): void {
-  //   this.players = [];
-  //   this.loadPlayers();
-  // }
 
   loadPlayers() {
     this.playerService
@@ -85,6 +82,14 @@ export class PlayerListComponent implements OnInit {
       .deletePlayer(playerId)
       .subscribe(res => console.log(res));
     this.reloadPlayers();
+  }
+
+  launchEditMode(playerId: number) {
+    let parameters = {
+      action: 'editMode',
+      id: playerId
+    };
+    this.listToForm.emit(parameters);
   }
 
 }

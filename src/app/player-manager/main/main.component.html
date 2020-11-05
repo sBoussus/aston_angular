@@ -2,7 +2,8 @@
 <div class="container">
     <div class="row">
         <div class="col-8">
-            <app-player-list></app-player-list>
+            <app-player-list
+                (listToForm)="listToForm($event)"></app-player-list>
         </div>
         <div class="col-4">
             <app-player-form
