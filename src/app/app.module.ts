@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -13,6 +14,10 @@ import { JuveJerseyComponent } from './juve-jersey/juve-jersey.component';
 import { JuveJerseyFlockingComponent } from './juve-jersey-flocking/juve-jersey-flocking.component';
 import { JuveJerseyPriceComponent } from './juve-jersey-price/juve-jersey-price.component';
 import { JuveJerseyVignettesComponent } from './juve-jersey-vignettes/juve-jersey-vignettes.component';
+import { AjaxComponent } from './ajax/ajax.component';
+import { AjaxPostComponent } from './ajax-post/ajax-post.component';
+import { FormsModule } from '@angular/forms';
+import { PlayerManagerModule } from './player-manager/player-manager.module';
 
 @NgModule({
   declarations: [
@@ -27,10 +32,15 @@ import { JuveJerseyVignettesComponent } from './juve-jersey-vignettes/juve-jerse
     JuveJerseyComponent,
     JuveJerseyFlockingComponent,
     JuveJerseyPriceComponent,
-    JuveJerseyVignettesComponent
+    JuveJerseyVignettesComponent,
+    AjaxComponent,
+    AjaxPostComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    FormsModule,
+    PlayerManagerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
