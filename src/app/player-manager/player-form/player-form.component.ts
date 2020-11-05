@@ -1,4 +1,6 @@
+import { PlayerService } from './../player.service';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-player-form',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlayerFormComponent implements OnInit {
 
-  constructor() { }
+  player = {
+    lastname: '',
+    firstname: '',
+    teamId: 1,
+    position: 'gardien',
+    age: 0
+  }
+
+  constructor(
+    private playerService: PlayerService) {
+  }
 
   ngOnInit(): void {
   }
 
+  createPlayer() {
+    this.playerService
+      .postPlayer(this.player)
+      .subscribe(res => console.log(res))
+  }
+
+  
 }

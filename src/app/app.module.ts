@@ -16,7 +16,7 @@ import { JuveJerseyPriceComponent } from './juve-jersey-price/juve-jersey-price.
 import { JuveJerseyVignettesComponent } from './juve-jersey-vignettes/juve-jersey-vignettes.component';
 import { AjaxComponent } from './ajax/ajax.component';
 import { AjaxPostComponent } from './ajax-post/ajax-post.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PlayerManagerModule } from './player-manager/player-manager.module';
 
 @NgModule({
@@ -40,6 +40,7 @@ import { PlayerManagerModule } from './player-manager/player-manager.module';
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     PlayerManagerModule
   ],
   providers: [],

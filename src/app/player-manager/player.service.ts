@@ -18,4 +18,8 @@ export class PlayerService {
     return this.http.get(API + '/' + id);
   }
 
+  postPlayer(player: any): any {
+    return this.http.post(API, player);
+  }
+
 }
