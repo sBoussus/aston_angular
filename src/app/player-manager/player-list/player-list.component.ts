@@ -11,8 +11,8 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class PlayerListComponent implements OnInit {
 
   public players: any = [];
-  positionFilter: string = '';
-  teamIdFilter: number = 0;
+  teamIdFilter: number | '-' = '-';
+  positionFilter: string = '-';
 
   @Output() listToForm: EventEmitter<any> = new EventEmitter();
 
@@ -39,19 +39,33 @@ export class PlayerListComponent implements OnInit {
     this.playerService
       .getPlayers()
       .subscribe((players: any[]) => {
-        this.players = players;
+        this.players = players.filter((player: any) => {
+          let result = false;
+          if (this.teamIdFilter === '-' || player.teamid == this.teamIdFilter) {
+            if (this.positionFilter === '-' || player.position === this.positionFilter) {
+              result = true;
+            }
+          }
+          return result;
+        });
       });
   }
 
   changeTeamIdFilter(event: any) {
     let { value } = event.target;
-
-    if (value !== '-') {
+    this.teamIdFilter = value;
+    if (value !== '-') {      
       this.playerService
         .getPlayers()
         .subscribe((players: any[]) => {
           this.players = players.filter((player: any) => {
-            return player.teamid == value;
+            let result = false;
+            if (player.teamid == value) {
+              if (this.positionFilter === '-' || player.position === this.positionFilter) {
+                result = true;
+              }
+            }
+            return result;
           });
         });
     } else {
@@ -62,13 +76,20 @@ export class PlayerListComponent implements OnInit {
 
   changePositionFilter(event: any) {
     let { value } = event.target;
+    this.positionFilter = value;
 
     if (value !== '-') {
       this.playerService
         .getPlayers()
         .subscribe((players: any[]) => {
           this.players = players.filter((player: any) => {
-            return player.position === value;
+            let result = false;
+            if (player.position === value) {
+              if (this.teamIdFilter === '-' || player.teamid == this.teamIdFilter) {
+                result = true;
+              }
+            }
+            return result;
           });
         });
     } else {

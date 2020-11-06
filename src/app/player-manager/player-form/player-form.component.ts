@@ -26,11 +26,22 @@ export class PlayerFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  resetPlayer() {
+    this.player = {
+      lastname: '',
+      firstname: '',
+      teamid: 1,
+      position: 'gardien',
+      age: 0
+    };
+  }
+
   createPlayer() {
     this.playerService
       .postPlayer(this.player)
       .subscribe(res => {
         this.formToList.emit('reloadPlayers');
+        this.resetPlayer();
       });
   }
 
@@ -49,6 +60,7 @@ export class PlayerFormComponent implements OnInit {
       .subscribe(res => {
         this.formToList.emit('reloadPlayers');
         this.editMode = false;
+        this.resetPlayer();
       });
   }
 
